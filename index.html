@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Shine Detailing | Premium Automotive Detailing & Ceramic Coating</title>
+  <meta name="description"
+    content="High-end mobile & studio car detailing, multi-stage paint correction, and ceramic coatings. Calculate your instant custom quote online now.">
+
+  <!-- Early Script to Prevent Theme Flash -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+              950: '#022c22'
+            },
+            slate: {
+              850: '#111c2e',
+              950: '#070d19'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          },
+          boxShadow: {
+            'glow-emerald': '0 0 30px -5px rgba(16, 185, 129, 0.3)',
+            'glow-lg': '0 0 50px -10px rgba(16, 185, 129, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #070d19;
+    }
+
+    .light ::-webkit-scrollbar-track,
+    html:not(.dark) ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    .light ::-webkit-scrollbar-thumb,
+    html:not(.dark) ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+
+    /* Glassmorphism Styles for Dark and Light Modes */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .dark .glass-nav {
+      background: rgba(7, 13, 25, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: none;
+    }
+
+    .glass-card-active {
+      border-color: rgba(16, 185, 129, 0.8) !important;
+      background: rgba(16, 185, 129, 0.08) !important;
+      box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.3);
+    }
+
+    .glass-input {
+      background: rgba(241, 245, 249, 0.9);
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      color: #0f172a;
+    }
+
+    .dark .glass-input {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .glass-input:focus {
+      border-color: #10b981;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Shimmer & Glow Effects */
+    .shimmer-text {
+      background: linear-gradient(135deg, #059669 0%, #10b981 40%, #047857 80%, #10b981 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s linear infinite;
+    }
+
+    .dark .shimmer-text {
+      background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 40%, #10b981 80%, #ffffff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Comparison Slider Styles */
+    .comp-wrapper {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+      border-radius: 1rem;
+      user-select: none;
+    }
+
+    .comp-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .comp-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+    }
+
+    .comp-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #10b981;
+      cursor: ew-resize;
+      transform: translateX(-50%);
+      z-index: 20;
+    }
+
+    .comp-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #070d19;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+    }
+
+    /* Modal Scale Animation */
+    .modal-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-backdrop.active .modal-content {
+      transform: scale(1) translateY(0);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- Background Glow & Grid Accent -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f00a_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f00a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b0a_1px,transparent_1px),linear-gradient(to_bottom,#1e293b0a_1px,transparent_1px)] bg-[size:4rem_4rem]">
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div
+            class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-emerald-400 flex items-center justify-center text-slate-950 font-black text-2xl shadow-lg shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+            <i data-lucide="sparkles" class="w-6 h-6 stroke-[2.5]"></i>
+          </div>
+          <div>
+            <div
+              class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight flex items-center gap-1.5">
+              APEX <span class="text-emerald-500 dark:text-emerald-400">SHINE</span>
+            </div>
+            <span
+              class="text-[10px] font-semibold tracking-widest text-slate-500 dark:text-slate-400 uppercase block">Automotive
+              Detailing</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700 dark:text-slate-300">
+          <a href="#services" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors py-2">Services
+            & Tiers</a>
+          <a href="#calculator"
+            class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors py-2 flex items-center gap-1.5">
+            <span>Price Calculator</span>
+            <span
+              class="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Live</span>
+          </a>
+          <a href="#results" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors py-2">Paint
+            Correction</a>
+          <a href="#reviews"
+            class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors py-2">Reviews</a>
+          <a href="#faq" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors py-2">FAQ</a>
+        </nav>
+
+        <!-- CTA, Phone & Theme Toggle Desktop -->
+        <div class="hidden md:flex items-center space-x-4">
+
+          <!-- Dark/Light Theme Toggle Button -->
+          <button type="button" aria-label="Toggle theme mode"
+            class="theme-toggle-btn p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 focus:outline-none transition-all">
+            <!-- Icon injected dynamically -->
+          </button>
+
+          <a href="tel:(555)234-5678"
+            class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-white flex items-center gap-2">
+            <div
+              class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-emerald-500 dark:text-emerald-400">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </div>
+            <span>(555)234-5678</span>
+          </a>
+          <a href="#calculator"
+            class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 transition-all transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>Book Now</span>
+          </a>
+        </div>
+
+        <!-- Mobile Controls (Theme + Hamburger) -->
+        <div class="md:hidden flex items-center space-x-2">
+          <button type="button" aria-label="Toggle theme mode"
+            class="theme-toggle-btn p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 focus:outline-none">
+            <!-- Icon injected dynamically -->
+          </button>
+
+          <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu"
+            class="p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu"
+      class="hidden md:hidden glass-nav border-t border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-3">
+      <a href="#services"
+        class="mobile-nav-link block px-4 py-3 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Services
+        & Pricing</a>
+      <a href="#calculator"
+        class="mobile-nav-link block px-4 py-3 rounded-lg text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 font-semibold flex items-center justify-between">
+        <span>Instant Price Calculator</span>
+        <span class="bg-emerald-500 text-slate-950 text-xs px-2 py-0.5 rounded font-bold">Estimate</span>
+      </a>
+      <a href="#results"
+        class="mobile-nav-link block px-4 py-3 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Paint
+        Correction Results</a>
+      <a href="#reviews"
+        class="mobile-nav-link block px-4 py-3 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Customer
+        Reviews</a>
+      <a href="#faq"
+        class="mobile-nav-link block px-4 py-3 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Frequently
+        Asked Questions</a>
+
+      <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-col space-y-3">
+        <a href="tel:(555)234-5678"
+          class="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold text-sm">
+          <i data-lucide="phone-call" class="w-4 h-4 text-emerald-500 dark:text-emerald-400"></i>
+          <span>Call (555)234-5678</span>
+        </a>
+        <a href="#calculator"
+          class="mobile-nav-link text-center bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-sm shadow-lg shadow-emerald-500/20">
+          Book Appointment Online
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Hero Text Content -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+
+            <!-- Trust Badge Pill -->
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span>Mobile Detailing & Studio Paint Correction</span>
+            </div>
+
+            <!-- Headline -->
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              Showroom Perfection. <br class="hidden sm:inline">
+              <span class="shimmer-text">Delivered To Your Doorstep.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p
+              class="text-slate-600 dark:text-slate-300 text-base sm:text-lg lg:text-xl font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              Transform your vehicle with precision hand detailing, multi-stage paint restoration, and long-lasting 9H
+              ceramic coating protection.
+            </p>
+
+            <!-- Value Bullets / Trust Badges Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-xl mx-auto lg:mx-0">
+              <div
+                class="glass-card p-3 rounded-xl flex items-center gap-2.5 text-left border-slate-200 dark:border-slate-800/80">
+                <div
+                  class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900 dark:text-white leading-snug">Fully Insured</p>
+                  <p class="text-[10px] text-slate-500 dark:text-slate-400">$2M Coverage</p>
+                </div>
+              </div>
+
+              <div
+                class="glass-card p-3 rounded-xl flex items-center gap-2.5 text-left border-slate-200 dark:border-slate-800/80">
+                <div
+                  class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900 dark:text-white leading-snug">5.0 Star Rated</p>
+                  <p class="text-[10px] text-slate-500 dark:text-slate-400">350+ Reviews</p>
+                </div>
+              </div>
+
+              <div
+                class="glass-card p-3 rounded-xl flex items-center gap-2.5 text-left border-slate-200 dark:border-slate-800/80">
+                <div
+                  class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="leaf" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900 dark:text-white leading-snug">Eco-Friendly</p>
+                  <p class="text-[10px] text-slate-500 dark:text-slate-400">pH Neutral Chem</p>
+                </div>
+              </div>
+
+              <div
+                class="glass-card p-3 rounded-xl flex items-center gap-2.5 text-left border-slate-200 dark:border-slate-800/80">
+                <div
+                  class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="truck" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900 dark:text-white leading-snug">Mobile Unit</p>
+                  <p class="text-[10px] text-slate-500 dark:text-slate-400">We Come To You</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <a href="#calculator"
+                class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2 text-base">
+                <i data-lucide="calculator" class="w-5 h-5"></i>
+                <span>Calculate Your Price</span>
+              </a>
+              <a href="#services"
+                class="w-full sm:w-auto glass-card hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white font-semibold px-7 py-4 rounded-xl transition-all border border-slate-300 dark:border-slate-700/60 text-center flex items-center justify-center gap-2 text-base">
+                <span>Explore Packages</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-500 dark:text-emerald-400"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Hero Image & Floating Cards -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+
+              <!-- Main Hero Car Image -->
+              <div
+                class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl shadow-emerald-950/20 dark:shadow-emerald-950/50 group">
+                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80"
+                  alt="High-End Black Supercar Detailing Finish"
+                  class="w-full h-[380px] sm:h-[460px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent dark:from-slate-950 dark:via-slate-950/20">
+                </div>
+
+                <!-- Floating Badge Bottom Overlay -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-700/60 backdrop-blur-md flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-500 dark:text-emerald-400 shrink-0">
+                      <i data-lucide="sparkle" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white">9H Hydrophobic Shield</p>
+                      <p class="text-[11px] text-slate-500 dark:text-slate-400">Guaranteed Gloss up to 5 Years</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 block">100% Gloss</span>
+                    <span class="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400">Restored</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top Floating Badge -->
+              <div
+                class="absolute -top-4 -right-4 glass-card px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700/80 shadow-xl hidden sm:flex items-center gap-3 animate-bounce"
+                style="animation-duration: 4s;">
+                <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
+                <span class="text-xs font-bold text-slate-900 dark:text-white">Available Today in Metro Area</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES & TIERS SECTION -->
+    <section id="services"
+      class="py-20 bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Tailored Car
+            Care Packages</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Precision
+            Detailing Tiers</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
+            Choose from baseline routine maintenance up to multi-stage paint correction and long-term ceramic
+            protection.
+          </p>
+        </div>
+
+        <!-- Service Tiers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <!-- Tier 1: Express Detail -->
+          <div
+            class="glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 relative group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="text-xs font-extrabold tracking-wider uppercase text-slate-600 dark:text-slate-400 bg-slate-200 dark:bg-slate-800 px-3 py-1 rounded-full">Entry
+                  Level</span>
+                <i data-lucide="car"
+                  class="w-6 h-6 text-slate-400 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors"></i>
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Express Detail</h4>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 min-h-[40px]">Essential maintenance wash and
+                quick interior refresh for regular care.</p>
+
+              <div class="mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Starting from</span>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-4xl font-black text-slate-900 dark:text-white">$120</span>
+                  <span class="text-xs text-slate-500 dark:text-slate-400">/ sedan</span>
+                </div>
+              </div>
+
+              <!-- Feature List -->
+              <ul class="space-y-3.5 text-sm text-slate-700 dark:text-slate-300 mb-8">
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Hand wash & scratch-free drying</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Wheel deep clean & tire shine</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Full interior vacuum & dust wipe</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Streak-free glass crystal polish</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Spray wax shine enhancement</span>
+                </li>
+              </ul>
+            </div>
+
+            <button onclick="selectPackageAndScroll('express')"
+              class="w-full bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold py-3.5 px-4 rounded-xl transition-all border border-slate-300 dark:border-slate-700 flex items-center justify-center gap-2 text-sm">
+              <span>Select Express</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Tier 2: Signature Full Detail (Featured) -->
+          <div
+            class="glass-card rounded-2xl p-8 flex flex-col justify-between border-2 border-emerald-500/80 relative shadow-xl shadow-emerald-500/10 transform lg:-translate-y-3 bg-white dark:bg-slate-900/90">
+
+            <!-- Most Popular Badge -->
+            <div
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-slate-950 font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+              ★ Most Popular Choice
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="text-xs font-extrabold tracking-wider uppercase text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">Complete
+                  Care</span>
+                <i data-lucide="sparkles" class="w-6 h-6 text-emerald-500 dark:text-emerald-400"></i>
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Signature Full Detail</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-sm mb-6 min-h-[40px]">Deep interior steam sanitization
+                paired with paint decontamination & wax.</p>
+
+              <div class="mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Starting from</span>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-4xl font-black text-slate-900 dark:text-white">$200</span>
+                  <span class="text-xs text-slate-500 dark:text-slate-400">/ sedan</span>
+                </div>
+              </div>
+
+              <!-- Feature List -->
+              <ul class="space-y-3.5 text-sm text-slate-800 dark:text-slate-200 mb-8">
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span class="font-semibold text-slate-900 dark:text-white">All Express Tier Features</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Interior steam cleaning & sanitization</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Leather cleaning & conditioning</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Engine bay detail & dressing</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Paint decontamination & synthetic sealant</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Carpet shampoo & light stain removal</span>
+                </li>
+              </ul>
+            </div>
+
+            <button onclick="selectPackageAndScroll('full')"
+              class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 text-sm">
+              <span>Select Full Detail</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Tier 3: Ceramic Shield Elite -->
+          <div
+            class="glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 relative group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="text-xs font-extrabold tracking-wider uppercase text-purple-600 dark:text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/30">Ultimate
+                  Gloss</span>
+                <i data-lucide="shield-check"
+                  class="w-6 h-6 text-purple-600 dark:text-purple-400 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors"></i>
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Ceramic Shield Elite</h4>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 min-h-[40px]">Multi-stage paint correction with
+                professional 9H ceramic coating protection.</p>
+
+              <div class="mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Starting from</span>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-4xl font-black text-slate-900 dark:text-white">$470</span>
+                  <span class="text-xs text-slate-500 dark:text-slate-400">/ sedan</span>
+                </div>
+              </div>
+
+              <!-- Feature List -->
+              <ul class="space-y-3.5 text-sm text-slate-700 dark:text-slate-300 mb-8">
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span class="font-semibold text-slate-900 dark:text-white">All Signature Tier Features</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Single-Stage Paint Correction (Swirl Removal)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>3-Year 9H Professional Ceramic Coating</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Hydrophobic glass & rim coating</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0"></i>
+                  <span>Warranty certificate & paint report</span>
+                </li>
+              </ul>
+            </div>
+
+            <button onclick="selectPackageAndScroll('ceramic')"
+              class="w-full bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold py-3.5 px-4 rounded-xl transition-all border border-slate-300 dark:border-slate-700 flex items-center justify-center gap-2 text-sm">
+              <span>Select Ceramic Package</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE LIVE PRICE ESTIMATOR & BOOKING FORM -->
+    <section id="calculator" class="py-20 relative scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
+            <span>Interactive Tool</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Live Price
+            Estimator & Instant Booking</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
+            Customize your detailing package below. Watch your price update in real-time and reserve your date
+            instantly.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- LEFT COLUMN: ESTIMATOR CONTROLS -->
+          <div class="lg:col-span-7 space-y-8">
+
+            <!-- STEP 1: VEHICLE TYPE SELECTION -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
+              <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center justify-center text-sm border border-emerald-500/30">
+                    1</div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Select Vehicle Type</h3>
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400">Base Rate</span>
+              </div>
+
+              <!-- Radio Cards Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="vehicle-type-container">
+
+                <!-- Sedan Radio Card -->
+                <label
+                  class="vehicle-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-3 relative group glass-card-active"
+                  data-vehicle="sedan" data-price="120">
+                  <input type="radio" name="vehicle_type" value="sedan" checked class="sr-only">
+                  <div class="flex items-center justify-between">
+                    <i data-lucide="car" class="w-6 h-6 text-emerald-500 dark:text-emerald-400"></i>
+                    <span
+                      class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">$120</span>
+                  </div>
+                  <div>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white block">Sedan / Coupe</span>
+                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block">2 or 4 Door Cars</span>
+                  </div>
+                </label>
+
+                <!-- SUV Radio Card -->
+                <label
+                  class="vehicle-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-3 relative group"
+                  data-vehicle="suv" data-price="170">
+                  <input type="radio" name="vehicle_type" value="suv" class="sr-only">
+                  <div class="flex items-center justify-between">
+                    <i data-lucide="truck"
+                      class="w-6 h-6 text-slate-400 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors"></i>
+                    <span
+                      class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">$170</span>
+                  </div>
+                  <div>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white block">SUV / Crossover</span>
+                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block">5-Seater / Mid-Size</span>
+                  </div>
+                </label>
+
+                <!-- Luxury/Truck Radio Card -->
+                <label
+                  class="vehicle-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-3 relative group"
+                  data-vehicle="truck" data-price="220">
+                  <input type="radio" name="vehicle_type" value="truck" class="sr-only">
+                  <div class="flex items-center justify-between">
+                    <i data-lucide="shield"
+                      class="w-6 h-6 text-slate-400 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors"></i>
+                    <span
+                      class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">$220</span>
+                  </div>
+                  <div>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white block">Truck / 3-Row SUV</span>
+                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block">Full-size & Luxury</span>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+            <!-- STEP 2: SERVICE PACKAGE TIER -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
+              <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center justify-center text-sm border border-emerald-500/30">
+                    2</div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Choose Detail Package</h3>
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400">Package Tier</span>
+              </div>
+
+              <div class="space-y-3" id="package-tier-container">
+
+                <!-- Express Package Option -->
+                <label
+                  class="package-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between glass-card-active"
+                  data-package="express" data-price="0">
+                  <div class="flex items-center gap-4">
+                    <input type="radio" name="package_tier" value="express" checked
+                      class="w-4 h-4 text-emerald-500 focus:ring-emerald-500 accent-emerald-500">
+                    <div>
+                      <span class="text-sm font-bold text-slate-900 dark:text-white block">Express Detail
+                        Baseline</span>
+                      <span class="text-xs text-slate-500 dark:text-slate-400 block">Wash, quick vacuum, glass polish &
+                        spray wax</span>
+                    </div>
+                  </div>
+                  <span
+                    class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30">Included</span>
+                </label>
+
+                <!-- Full Detail Option -->
+                <label
+                  class="package-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between"
+                  data-package="full" data-price="80">
+                  <div class="flex items-center gap-4">
+                    <input type="radio" name="package_tier" value="full"
+                      class="w-4 h-4 text-emerald-500 focus:ring-emerald-500 accent-emerald-500">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-sm font-bold text-slate-900 dark:text-white block">Signature Full Interior &
+                          Exterior</span>
+                        <span
+                          class="text-[10px] font-extrabold text-slate-950 bg-emerald-400 px-1.5 py-0.5 rounded uppercase">Popular</span>
+                      </div>
+                      <span class="text-xs text-slate-500 dark:text-slate-400 block">Steam sanitize, leather
+                        conditioning & engine bay</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-bold text-slate-900 dark:text-white">+$80</span>
+                </label>
+
+                <!-- Ceramic Package Option -->
+                <label
+                  class="package-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between"
+                  data-package="ceramic" data-price="350">
+                  <div class="flex items-center gap-4">
+                    <input type="radio" name="package_tier" value="ceramic"
+                      class="w-4 h-4 text-emerald-500 focus:ring-emerald-500 accent-emerald-500">
+                    <div>
+                      <span class="text-sm font-bold text-slate-900 dark:text-white block">Ceramic Shield Elite
+                        Package</span>
+                      <span class="text-xs text-slate-500 dark:text-slate-400 block">Single-stage paint correction +
+                        3-Year 9H Coating</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-bold text-purple-600 dark:text-purple-400">+$350</span>
+                </label>
+
+              </div>
+            </div>
+
+            <!-- STEP 3: OPTIONAL ADD-ONS -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
+              <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center justify-center text-sm border border-emerald-500/30">
+                    3</div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Select Optional Add-ons</h3>
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400">Custom Upgrades</span>
+              </div>
+
+              <!-- Add-ons Grid Checkboxes -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <!-- Engine Bay Clean -->
+                <label
+                  class="addon-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between group">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" id="addon-engine" name="addons" value="45" data-name="Engine Bay Clean"
+                      class="w-4 h-4 text-emerald-500 rounded accent-emerald-500 focus:ring-emerald-500">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-slate-900 dark:text-white block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Engine
+                        Bay Clean</span>
+                      <span class="text-[11px] text-slate-500 dark:text-slate-400">Degrease & dressing</span>
+                    </div>
+                  </div>
+                  <span
+                    class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">+$45</span>
+                </label>
+
+                <!-- Headlight Restoration -->
+                <label
+                  class="addon-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between group">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" id="addon-headlight" name="addons" value="35"
+                      data-name="Headlight Restoration"
+                      class="w-4 h-4 text-emerald-500 rounded accent-emerald-500 focus:ring-emerald-500">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-slate-900 dark:text-white block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Headlight
+                        Restoration</span>
+                      <span class="text-[11px] text-slate-500 dark:text-slate-400">Oxidation removal & UV seal</span>
+                    </div>
+                  </div>
+                  <span
+                    class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">+$35</span>
+                </label>
+
+                <!-- Pet Hair Removal -->
+                <label
+                  class="addon-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between group">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" id="addon-pethair" name="addons" value="30"
+                      data-name="Heavy Pet Hair Removal"
+                      class="w-4 h-4 text-emerald-500 rounded accent-emerald-500 focus:ring-emerald-500">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-slate-900 dark:text-white block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Pet
+                        Hair Removal</span>
+                      <span class="text-[11px] text-slate-500 dark:text-slate-400">Deep fur extraction</span>
+                    </div>
+                  </div>
+                  <span
+                    class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">+$30</span>
+                </label>
+
+                <!-- Leather Conditioning -->
+                <label
+                  class="addon-card cursor-pointer glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all flex items-center justify-between group">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" id="addon-leather" name="addons" value="40" data-name="Leather Conditioning"
+                      class="w-4 h-4 text-emerald-500 rounded accent-emerald-500 focus:ring-emerald-500">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-slate-900 dark:text-white block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Leather
+                        Conditioning</span>
+                      <span class="text-[11px] text-slate-500 dark:text-slate-400">pH balanced moisturizer</span>
+                    </div>
+                  </div>
+                  <span
+                    class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">+$40</span>
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: DYNAMIC SUMMARY & BOOKING FORM -->
+          <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+
+            <div
+              class="glass-card rounded-2xl p-6 sm:p-8 border-2 border-emerald-500/40 shadow-2xl shadow-emerald-950/20 dark:shadow-emerald-950/60 relative overflow-hidden">
+              <div
+                class="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none">
+              </div>
+
+              <!-- Summary Header -->
+              <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-5 mb-5">
+                <div>
+                  <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Summary & Booking</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Instant Estimate Calculation</p>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-xs font-medium text-slate-500 dark:text-slate-400 block uppercase tracking-wider">Total
+                    Quote</span>
+                  <div
+                    class="text-4xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight flex items-baseline justify-end gap-0.5">
+                    <span>$</span>
+                    <span id="total-price-display" class="transition-all duration-300">120</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selected Items Breakdown List -->
+              <div
+                class="space-y-3 bg-slate-100/90 dark:bg-slate-950/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-xs mb-6">
+                <div class="flex items-center justify-between text-slate-700 dark:text-slate-300">
+                  <span>Vehicle: <strong id="summary-vehicle" class="text-slate-900 dark:text-white">Sedan /
+                      Coupe</strong></span>
+                  <span id="summary-vehicle-price" class="text-slate-500 dark:text-slate-400 font-semibold">$120</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700 dark:text-slate-300">
+                  <span>Package: <strong id="summary-package" class="text-slate-900 dark:text-white">Express Detail
+                      Baseline</strong></span>
+                  <span id="summary-package-price" class="text-slate-500 dark:text-slate-400 font-semibold">+$0</span>
+                </div>
+                <div id="summary-addons-wrapper"
+                  class="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-1.5 hidden">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block">Selected
+                    Add-ons:</span>
+                  <ul id="summary-addons-list" class="space-y-1 text-slate-700 dark:text-slate-300 pl-2">
+                    <!-- Dynamically injected add-on list items -->
+                  </ul>
+                </div>
+              </div>
+
+              <!-- BOOKING FORM WITH WEB3FORMS PIN-TO-PIN INTEGRATION -->
+              <form id="booking-form" class="space-y-4">
+
+                <!-- Web3Forms Access Key & Details -->
+                <input type="hidden" name="access_key" value="a0da97a8-8638-4f67-aaf2-35ce36ec0518">
+                <input type="hidden" name="subject" value="New Detailing Booking Request - Apex Shine">
+                <input type="hidden" name="from_name" value="Apex Shine Detailing Site">
+
+                <div>
+                  <label for="client-name"
+                    class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Your
+                    Full Name *</label>
+                  <div class="relative">
+                    <input type="text" id="client-name" name="name" required placeholder="e.g. Marcus Vance"
+                      class="w-full glass-input rounded-xl px-4 py-3 text-sm focus:outline-none">
+                    <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5"></i>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="client-email"
+                    class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Your
+                    Email Address *</label>
+                  <div class="relative">
+                    <input type="email" id="client-email" name="email" required placeholder="e.g. marcus@example.com"
+                      class="w-full glass-input rounded-xl px-4 py-3 text-sm focus:outline-none">
+                    <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5"></i>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="client-phone"
+                    class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Phone
+                    Number *</label>
+                  <div class="relative">
+                    <input type="tel" id="client-phone" name="phone" required placeholder="e.g. (555) 234-5678"
+                      class="w-full glass-input rounded-xl px-4 py-3 text-sm focus:outline-none">
+                    <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5"></i>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="booking-date"
+                      class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Preferred
+                      Date</label>
+                    <input type="date" id="booking-date" name="preferred_date"
+                      class="w-full glass-input rounded-xl px-3 py-3 text-sm focus:outline-none">
+                  </div>
+                  <div>
+                    <label for="service-location"
+                      class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Location</label>
+                    <select id="service-location" name="service_location"
+                      class="w-full glass-input rounded-xl px-3 py-3 text-sm bg-white dark:bg-slate-900 focus:outline-none">
+                      <option value="Mobile (We come to you)">Mobile Service</option>
+                      <option value="Studio Drop-off">Studio Drop-off</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="car-notes"
+                    class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Vehicle
+                    Model / Special Notes</label>
+                  <input type="text" id="car-notes" name="notes" placeholder="e.g. 2023 BMW M4 - Dark Blue"
+                    class="w-full glass-input rounded-xl px-4 py-2.5 text-sm focus:outline-none">
+                </div>
+
+                <!-- Web3Forms Access Key Settings Collapsible -->
+                <div class="pt-1">
+                  <details class="text-xs text-slate-500 dark:text-slate-400">
+                    <summary
+                      class="cursor-pointer font-semibold hover:text-emerald-500 flex items-center gap-1.5 select-none py-1">
+                      <i data-lucide="key" class="w-3.5 h-3.5 text-emerald-500"></i>
+                      <span>Web3Forms API Key Settings</span>
+                    </summary>
+                    <div
+                      class="mt-2 p-3 bg-slate-100 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800 space-y-2">
+                      <label for="web3forms-key-input"
+                        class="block font-bold text-[11px] text-slate-700 dark:text-slate-300">
+                        Web3Forms Access Key (albatoros731@gmail.com):
+                      </label>
+                      <input type="text" id="web3forms-key-input" name="access_key"
+                        value="a0da97a8-8638-4f67-aaf2-35ce36ec0518" placeholder="Paste Web3Forms key here..."
+                        class="w-full glass-input rounded-lg px-3 py-2 text-xs font-mono">
+                      <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal">
+                        To receive live emails directly at <strong>albatoros731@gmail.com</strong>, grab a free key in 5
+                        seconds at
+                        <a href="https://web3forms.com" target="_blank" rel="noopener"
+                          class="text-emerald-500 hover:underline font-bold">web3forms.com</a>.
+                      </p>
+                    </div>
+                  </details>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="booking-submit-btn"
+                  class="w-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 hover:opacity-95 text-slate-950 font-black py-4 px-6 rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-base mt-4">
+                  <i data-lucide="check-circle" class="w-5 h-5"></i>
+                  <span id="booking-submit-text">Confirm Booking Request</span>
+                </button>
+
+                <p
+                  class="text-[11px] text-center text-slate-500 dark:text-slate-400 mt-2 flex items-center justify-center gap-1.5">
+                  <i data-lucide="lock" class="w-3 h-3 text-emerald-500 dark:text-emerald-400"></i>
+                  <span>No upfront payment required • Pay after service approval</span>
+                </p>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BEFORE & AFTER INTERACTIVE PAINT CORRECTION SLIDER -->
+    <section id="results"
+      class="py-20 bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <div class="lg:col-span-5 space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Paint Restoration Perfection</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              See The Paint Correction Difference
+            </h2>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              Swirl marks, micro-scratches, and oxidation degrade your car's clear coat. Our multi-stage machine
+              polishing restores wet-look depth and mirror reflections.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">99% Swirl & Scratch Elimination</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Safe dual-action machine polishing process.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Deep Metallic & Paint Clarity</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Unlocks true factory paint color vibrancy.</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-2">
+              <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+              <span>Drag the slider handle on the image to inspect before & after</span>
+            </p>
+          </div>
+
+          <!-- Comparison Slider Container -->
+          <div class="lg:col-span-7">
+            <div class="comp-wrapper shadow-2xl border border-slate-300 dark:border-slate-800" id="comparison-slider">
+              <!-- After Image (Background) -->
+              <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1000&q=80"
+                alt="After Paint Correction Gloss" class="comp-img">
+              <div
+                class="absolute top-4 right-4 bg-emerald-500 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md z-10">
+                After: 9H Glass Gloss
+              </div>
+
+              <!-- Before Image (Overlay clipped) -->
+              <div class="comp-overlay" id="comp-overlay">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80"
+                  alt="Before Paint Correction Dull Swirls" class="comp-img">
+                <div
+                  class="absolute top-4 left-4 bg-slate-900/90 text-slate-300 border border-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md z-10">
+                  Before: Swirled Clear Coat
+                </div>
+              </div>
+
+              <!-- Handle Bar -->
+              <div class="comp-handle" id="comp-handle">
+                <div class="comp-button">
+                  <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="reviews" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div class="flex items-center justify-center gap-1 text-emerald-500 dark:text-emerald-400">
+            <i data-lucide="star" class="w-5 h-5 fill-emerald-500 dark:fill-emerald-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-emerald-500 dark:fill-emerald-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-emerald-500 dark:fill-emerald-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-emerald-500 dark:fill-emerald-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-emerald-500 dark:fill-emerald-400"></i>
+            <span class="text-slate-900 dark:text-white font-bold ml-2 text-sm">4.98 / 5.0 Rating</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Trusted By Car
+            Enthusiasts</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg">Read real experiences from vehicle owners
+            who insist on nothing less than showroom perfection.</p>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Review 1 -->
+          <div
+            class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+            <div class="space-y-4">
+              <div class="flex items-center gap-1 text-emerald-500 dark:text-emerald-400">
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+              </div>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                "Apex Shine completely erased years of car wash swirl marks on my Porsche 911 GT3. The ceramic coating
+                finish looks deeper than the day I picked it up from the dealership."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div
+                class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center">
+                DR
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">David Reynolds</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Porsche 911 GT3 • Ceramic Package</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div
+            class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+            <div class="space-y-4">
+              <div class="flex items-center gap-1 text-emerald-500 dark:text-emerald-400">
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+              </div>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                "The mobile service is unmatched. They arrived right at my office parking lot and performed a Signature
+                Full Detail while I was in meetings. My Tesla Model Y looks spotless!"
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div
+                class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center">
+                SL
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Sarah Lin</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Tesla Model Y • Full Detail</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div
+            class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+            <div class="space-y-4">
+              <div class="flex items-center gap-1 text-emerald-500 dark:text-emerald-400">
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-emerald-500 dark:fill-emerald-400"></i>
+              </div>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                "Added the pet hair removal and engine bay detail to my F-150 truck package. Unbelievable difference!
+                Every inch of leather and carpet feels brand new."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div
+                class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center">
+                MK
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Michael Miller</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Ford F-150 Raptor • Full Detail + Addons</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq"
+      class="py-20 bg-slate-100/70 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center space-y-3 mb-14">
+          <h2 class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Questions &
+            Answers</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Frequently
+            Asked Questions</h3>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion">
+
+          <div class="glass-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <button
+              class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <span>Do I need to supply water or power for mobile detailing?</span>
+              <i data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300"></i>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800/60 pt-3">
+              No! Our fully equipped mobile vans carry onboard deionized water tanks and quiet generator power supplies.
+              All we need is access to your parked vehicle.
+            </div>
+          </div>
+
+          <div class="glass-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <button
+              class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <span>How long does a full detail or ceramic coating take?</span>
+              <i data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300"></i>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800/60 pt-3">
+              Express details take roughly 1.5 - 2 hours. Signature Full Details average 3 - 4 hours. Ceramic Coating &
+              Paint Correction packages require 1 full day for curing and precision leveling.
+            </div>
+          </div>
+
+          <div class="glass-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <button
+              class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <span>What is the difference between traditional wax and ceramic coating?</span>
+              <i data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300"></i>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800/60 pt-3">
+              Traditional wax lasts 4-8 weeks and provides light shine. A 9H Ceramic Coating chemically bonds with your
+              clear coat to form a permanent nano-crystalline hydrophobic barrier lasting up to 3 to 5 years against UV
+              rays, acid rain, and dirt.
+            </div>
+          </div>
+
+          <div class="glass-card rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <button
+              class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <span>What is your cancellation or reschedule policy?</span>
+              <i data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300"></i>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800/60 pt-3">
+              We understand plans change! You can easily reschedule or cancel up to 24 hours prior to your scheduled
+              slot with zero fees.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer
+    class="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 pt-16 pb-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200 dark:border-slate-800/80">
+
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="#" class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/25">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">APEX <span
+                class="text-emerald-500 dark:text-emerald-400">SHINE</span></span>
+          </a>
+          <p class="text-slate-600 dark:text-slate-400 text-sm max-w-sm leading-relaxed">
+            Metro area's premier automotive detailing studio & mobile service. Dedicated to bringing out the true
+            brilliance in every vehicle.
+          </p>
+          <div class="flex items-center space-x-3 text-slate-500 dark:text-slate-400 pt-2">
+            <a href="#" aria-label="Follow on Instagram"
+              class="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 flex items-center justify-center hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition-colors">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" aria-label="Follow on Facebook"
+              class="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 flex items-center justify-center hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition-colors">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="#" aria-label="Watch on YouTube"
+              class="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 flex items-center justify-center hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition-colors">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
+            <li><a href="#services"
+                class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Detailing Packages</a>
+            </li>
+            <li><a href="#calculator"
+                class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Instant Price
+                Calculator</a></li>
+            <li><a href="#results" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Paint
+                Correction</a></li>
+            <li><a href="#reviews" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Customer
+                Reviews</a></li>
+            <li><a href="#faq" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">FAQ</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Hours -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Hours of Operation
+          </h4>
+          <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <li class="flex justify-between"><span class="text-slate-800 dark:text-slate-300">Mon - Fri:</span>
+              <span>8:00
+                AM - 7:00 PM</span>
+            </li>
+            <li class="flex justify-between"><span class="text-slate-800 dark:text-slate-300">Saturday:</span>
+              <span>9:00
+                AM - 6:00 PM</span>
+            </li>
+            <li class="flex justify-between"><span class="text-slate-800 dark:text-slate-300">Sunday:</span> <span
+                class="text-emerald-600 dark:text-emerald-400">By Appointment</span></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Contact Studio
+          </h4>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0"></i>
+              <span>742 Performance Way, Suite B</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0"></i>
+              <a href="tel:(555)234-5678"
+                class="hover:text-slate-900 dark:hover:text-white transition-colors">(555)234-5678</a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="mail" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0"></i>
+              <a href="mailto:albatoros731@gmail.com"
+                class="hover:text-slate-900 dark:hover:text-white transition-colors">albatoros731@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div
+        class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
+        <p>&copy; 2026 Apex Shine Detailing. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-slate-700 dark:hover:text-slate-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-700 dark:hover:text-slate-300 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-slate-700 dark:hover:text-slate-300 transition-colors">Mobile Service
+            Radius</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING AI ASSISTANT WIDGET (BOTTOM RIGHT) -->
+  <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+
+    <!-- Chat Window Container -->
+    <div id="ai-chat-window"
+      class="hidden w-[90vw] sm:w-96 h-[520px] max-h-[80vh] glass-card rounded-2xl border-2 border-emerald-500/40 shadow-2xl shadow-emerald-500/20 flex flex-col overflow-hidden mb-4 transition-all duration-300">
+
+      <!-- Chat Header -->
+      <div
+        class="bg-slate-100 dark:bg-slate-900 p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div
+              class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-slate-950 font-bold shadow-md shadow-emerald-500/30">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <span
+              class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-white dark:border-slate-900 rounded-full"></span>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">Apex AI Assistant</h4>
+            <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Online • Detailing Expert
+            </span>
+          </div>
+        </div>
+
+        <!-- Close Button -->
+        <button id="ai-chat-close" aria-label="Close AI Chat"
+          class="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Messages Scroll Container -->
+      <div id="ai-chat-messages"
+        class="flex-1 overflow-y-auto p-4 space-y-3 text-xs sm:text-sm bg-slate-50/50 dark:bg-slate-950/40">
+
+        <!-- Initial Greeting Message -->
+        <div class="flex gap-2.5 items-start">
+          <div
+            class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div
+            class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 p-3.5 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700/60 max-w-[85%] leading-relaxed shadow-sm">
+            Hi! I'm your Apex AI assistant. Want help picking the right detailing package or have a question about our
+            mobile service?
+          </div>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div id="ai-quick-prompts" class="flex flex-wrap gap-2 pt-1 pl-9">
+          <button
+            class="ai-chip text-[11px] bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-medium px-3 py-1.5 rounded-full transition-all text-left">
+            How long does ceramic coating take?
+          </button>
+          <button
+            class="ai-chip text-[11px] bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-medium px-3 py-1.5 rounded-full transition-all text-left">
+            Do you come to my house?
+          </button>
+          <button
+            class="ai-chip text-[11px] bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-medium px-3 py-1.5 rounded-full transition-all text-left">
+            What's included in the full detail?
+          </button>
+          <button
+            class="ai-chip text-[11px] bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-medium px-3 py-1.5 rounded-full transition-all text-left">
+            How much for an SUV detail?
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Chat Input Bar -->
+      <form id="ai-chat-form"
+        class="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
+        <input type="text" id="ai-chat-input" placeholder="Type a question..."
+          class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 focus:outline-none focus:border-emerald-500">
+        <button type="submit" id="ai-chat-send" aria-label="Send Message"
+          class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold p-2.5 rounded-xl shadow-md transition-all flex items-center justify-center shrink-0">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+    </div>
+
+    <!-- Floating AI Widget Trigger Button -->
+    <button id="ai-chat-toggle" aria-label="Open AI Assistant"
+      class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-emerald-400 text-slate-950 font-black flex items-center justify-center shadow-xl shadow-emerald-500/40 hover:scale-105 active:scale-95 transition-all group">
+      <span
+        class="w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-slate-950 animate-pulse absolute -top-0.5 -right-0.5 z-10"></span>
+      <i data-lucide="sparkles" id="ai-toggle-icon-open" class="w-7 h-7 group-hover:rotate-12 transition-transform"></i>
+      <i data-lucide="x" id="ai-toggle-icon-close" class="w-7 h-7 hidden"></i>
+    </button>
+
+  </div>
+
+
+  <!-- CUSTOM SUCCESS CONFIRMATION MODAL ALERT -->
+  <div id="booking-modal"
+    class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div
+      class="glass-card modal-content max-w-lg w-full rounded-2xl p-6 sm:p-8 border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/20 text-center space-y-6">
+
+      <!-- Animated Check Mark Icon -->
+      <div
+        class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-500 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/30">
+        <i data-lucide="check" class="w-9 h-9 stroke-[3]"></i>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-2xl font-black text-slate-900 dark:text-white">Booking Request Received!</h3>
+        <p id="modal-status-subhead" class="text-emerald-600 dark:text-emerald-400 font-semibold text-sm">We will call
+          you within 15 minutes to
+          confirm.</p>
+      </div>
+
+      <!-- Details Summary Card -->
+      <div
+        class="bg-slate-100 dark:bg-slate-950/70 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-left space-y-2 text-xs">
+        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800/80 pb-2">
+          <span class="text-slate-500 dark:text-slate-400">Client Name:</span>
+          <strong id="modal-client-name" class="text-slate-900 dark:text-white">Marcus Vance</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800/80 pb-2">
+          <span class="text-slate-500 dark:text-slate-400">Phone Number:</span>
+          <strong id="modal-client-phone" class="text-slate-900 dark:text-white">(555) 234-5678</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800/80 pb-2">
+          <span class="text-slate-500 dark:text-slate-400">Package & Vehicle:</span>
+          <strong id="modal-package-info" class="text-emerald-600 dark:text-emerald-400">Express Detail
+            (Sedan)</strong>
+        </div>
+        <div class="flex justify-between pt-1">
+          <span class="text-slate-500 dark:text-slate-400">Estimated Total:</span>
+          <strong id="modal-total-price" class="text-lg font-black text-slate-900 dark:text-white">$120</strong>
+        </div>
+      </div>
+
+      <!-- Live Web3Forms Status Notice Box -->
+      <div id="modal-api-notice"
+        class="hidden text-left p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400 text-xs space-y-1">
+        <div class="font-bold flex items-center gap-1.5">
+          <i data-lucide="info" class="w-4 h-4 shrink-0"></i>
+          <span>Web3Forms Key Notice:</span>
+        </div>
+        <p id="modal-api-notice-text" class="text-[11px] leading-relaxed">
+          To forward live email notifications to <strong>albatoros731@gmail.com</strong>, create a free key at <a
+            href="https://web3forms.com" target="_blank" rel="noopener" class="underline font-bold">web3forms.com</a>
+          and paste it into the Web3Forms API Key Settings field.
+        </p>
+      </div>
+
+      <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+        Thank you for choosing Apex Shine Detailing! We look forward to servicing your vehicle.
+      </p>
+
+      <button id="modal-close-btn"
+        class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-500/20 transition-all text-sm">
+        Close & Return to Site
+      </button>
+    </div>
+  </div>
+
+
+  <!-- VANILLA JAVASCRIPT LOGIC -->
+  <script>
+    // Initialize Lucide Icons & Components on DOM Loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initThemeToggle();
+      initCalculatorLogic();
+      initMobileMenu();
+      initComparisonSlider();
+      initFaqAccordion();
+      initAiChatWidget();
+    });
+
+    /* ==========================================================================
+       1. THEME TOGGLE LOGIC (DARK / LIGHT MODE)
+       ========================================================================== */
+    function initThemeToggle() {
+      const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+
+      function updateIcons() {
+        const isDark = document.documentElement.classList.contains('dark');
+        toggleBtns.forEach(btn => {
+          btn.innerHTML = isDark
+            ? `<i data-lucide="sun" class="w-5 h-5 text-amber-400"></i>`
+            : `<i data-lucide="moon" class="w-5 h-5 text-slate-700"></i>`;
+        });
+        lucide.createIcons();
+      }
+
+      toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          }
+          updateIcons();
+        });
+      });
+
+      updateIcons();
+    }
+
+    /* ==========================================================================
+       2. MOBILE MENU TOGGLE LOGIC
+       ========================================================================== */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    /* ==========================================================================
+       3. INTERACTIVE PRICE CALCULATOR LOGIC
+       ========================================================================== */
+    const state = {
+      vehicleType: 'sedan',
+      vehiclePrice: 120,
+      vehicleName: 'Sedan / Coupe',
+      packageTier: 'express',
+      packagePrice: 0,
+      packageName: 'Express Detail Baseline',
+      addons: [] // Array of { id, name, price }
+    };
+
+    function initCalculatorLogic() {
+      const vehicleCards = document.querySelectorAll('.vehicle-card');
+      const packageCards = document.querySelectorAll('.package-card');
+      const addonCheckboxes = document.querySelectorAll('input[name="addons"]');
+      const bookingForm = document.getElementById('booking-form');
+
+      // Vehicle Selection Handlers
+      vehicleCards.forEach(card => {
+        card.addEventListener('click', () => {
+          vehicleCards.forEach(c => c.classList.remove('glass-card-active'));
+          card.classList.add('glass-card-active');
+          const radio = card.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+
+          state.vehicleType = card.dataset.vehicle;
+          state.vehiclePrice = parseInt(card.dataset.price, 10);
+          state.vehicleName = card.querySelector('.text-sm.font-bold').textContent.trim();
+
+          updateCalculatorUI();
+        });
+      });
+
+      // Package Selection Handlers
+      packageCards.forEach(card => {
+        card.addEventListener('click', () => {
+          packageCards.forEach(c => c.classList.remove('glass-card-active'));
+          card.classList.add('glass-card-active');
+          const radio = card.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+
+          state.packageTier = card.dataset.package;
+          state.packagePrice = parseInt(card.dataset.price, 10);
+          state.packageName = card.querySelector('.text-sm.font-bold').textContent.trim();
+
+          updateCalculatorUI();
+        });
+      });
+
+      // Add-on Selection Handlers
+      addonCheckboxes.forEach(chk => {
+        chk.addEventListener('change', () => {
+          recalculateAddons();
+          updateCalculatorUI();
+        });
+      });
+
+      // Booking Form Submit Handler (Web3Forms API)
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', handleFormSubmit);
+      }
+
+      // Modal Close Handler
+      const closeBtn = document.getElementById('modal-close-btn');
+      const modal = document.getElementById('booking-modal');
+      if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+          modal.classList.remove('active');
+        });
+      }
+
+      // Initial recalculation
+      recalculateAddons();
+      updateCalculatorUI();
+    }
+
+    function recalculateAddons() {
+      const checkedAddons = document.querySelectorAll('input[name="addons"]:checked');
+      state.addons = [];
+      checkedAddons.forEach(chk => {
+        state.addons.push({
+          id: chk.id,
+          name: chk.dataset.name,
+          price: parseInt(chk.value, 10)
+        });
+      });
+    }
+
+    function updateCalculatorUI() {
+      // 1. Calculate Total
+      const addonsTotal = state.addons.reduce((sum, item) => sum + item.price, 0);
+      const grandTotal = state.vehiclePrice + state.packagePrice + addonsTotal;
+
+      // 2. Smoothly Update Total Display
+      const totalDisplay = document.getElementById('total-price-display');
+      if (totalDisplay) {
+        animateNumber(totalDisplay, parseInt(totalDisplay.textContent) || 0, grandTotal, 300);
+      }
+
+      // 3. Update Summary Breakdown Text
+      const summaryVehicle = document.getElementById('summary-vehicle');
+      const summaryVehiclePrice = document.getElementById('summary-vehicle-price');
+      const summaryPackage = document.getElementById('summary-package');
+      const summaryPackagePrice = document.getElementById('summary-package-price');
+
+      if (summaryVehicle) summaryVehicle.textContent = state.vehicleName;
+      if (summaryVehiclePrice) summaryVehiclePrice.textContent = `$${state.vehiclePrice}`;
+      if (summaryPackage) summaryPackage.textContent = state.packageName;
+      if (summaryPackagePrice) summaryPackagePrice.textContent = `+$${state.packagePrice}`;
+
+      // 4. Update Summary Addons List
+      const addonsWrapper = document.getElementById('summary-addons-wrapper');
+      const addonsList = document.getElementById('summary-addons-list');
+
+      if (addonsWrapper && addonsList) {
+        if (state.addons.length > 0) {
+          addonsWrapper.classList.remove('hidden');
+          addonsList.innerHTML = state.addons.map(item => `
+            <li class="flex justify-between items-center">
+              <span>• ${item.name}</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold">+$${item.price}</span>
+            </li>
+          `).join('');
+        } else {
+          addonsWrapper.classList.add('hidden');
+          addonsList.innerHTML = '';
+        }
+      }
+    }
+
+    // Number Counter Animation Helper
+    function animateNumber(element, start, end, duration) {
+      if (start === end) return;
+      const range = end - start;
+      let current = start;
+      const increment = end > start ? 1 : -1;
+      const stepTime = Math.abs(Math.floor(duration / (range || 1)));
+      const timer = setInterval(() => {
+        current += increment * Math.ceil(Math.abs(range) / 10);
+        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+          current = end;
+          clearInterval(timer);
+        }
+        element.textContent = current;
+      }, 20);
+    }
+
+    // Direct Package Select from Services Grid
+    function selectPackageAndScroll(packageKey) {
+      const packageCards = document.querySelectorAll('.package-card');
+      packageCards.forEach(card => {
+        if (card.dataset.package === packageKey) {
+          card.click();
+        }
+      });
+      const calcSection = document.getElementById('calculator');
+      if (calcSection) {
+        calcSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /* ==========================================================================
+       4. FORM SUBMISSION WITH WEB3FORMS & SUCCESS MODAL LOGIC
+       ========================================================================== */
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('client-name');
+      const emailInput = document.getElementById('client-email');
+      const phoneInput = document.getElementById('client-phone');
+      const notesInput = document.getElementById('car-notes');
+      const keyInput = document.getElementById('web3forms-key-input');
+      const submitBtn = document.getElementById('booking-submit-btn');
+
+      if (!nameInput.value.trim() || !emailInput.value.trim() || !phoneInput.value.trim()) {
+        alert('Please fill out your name, email address, and phone number.');
+        return;
+      }
+
+      // Calculate final total
+      const addonsTotal = state.addons.reduce((sum, item) => sum + item.price, 0);
+      const grandTotal = state.vehiclePrice + state.packagePrice + addonsTotal;
+      const addonNames = state.addons.map(a => a.name).join(', ') || 'None';
+
+      // Set Loading State on Button
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+      submitBtn.innerHTML = `
+        <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+        <span>Sending Request...</span>
+      `;
+      lucide.createIcons();
+
+      // Clean key and construct Form Data for Web3Forms API
+      const keyVal = (keyInput ? keyInput.value : '').trim() || 'a0da97a8-8638-4f67-aaf2-35ce36ec0518';
+
+      const formData = new FormData(e.target);
+      formData.set('access_key', keyVal);
+      formData.append('vehicle_type', state.vehicleName);
+      formData.append('package_tier', state.packageName);
+      formData.append('selected_addons', addonNames);
+      formData.append('estimated_total', `$${grandTotal}`);
+      formData.append('destination_email', 'albatoros731@gmail.com');
+
+      let isSuccess = false;
+      let apiMessage = '';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+        isSuccess = data.success === true;
+        apiMessage = data.message || '';
+      } catch (error) {
+        console.error('Web3Forms Error:', error);
+        isSuccess = false;
+        apiMessage = 'Network connection issue.';
+      } finally {
+        // Reset submit button state
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        submitBtn.innerHTML = `
+          <i data-lucide="check-circle" class="w-5 h-5"></i>
+          <span>Confirm Booking Request</span>
+        `;
+        lucide.createIcons();
+      }
+
+      // Display Modal Workflow
+      openModalWithDetails(
+        nameInput.value.trim(),
+        phoneInput.value.trim(),
+        state.packageName,
+        state.vehicleName,
+        grandTotal,
+        isSuccess,
+        apiMessage
+      );
+
+      // Clear text input fields
+      nameInput.value = '';
+      emailInput.value = '';
+      phoneInput.value = '';
+      if (notesInput) notesInput.value = '';
+    }
+
+    function openModalWithDetails(name, phone, packageTier, vehicle, total, isSuccess, apiMsg) {
+      document.getElementById('modal-client-name').textContent = name;
+      document.getElementById('modal-client-phone').textContent = phone;
+      document.getElementById('modal-package-info').textContent = `${packageTier} (${vehicle})`;
+      document.getElementById('modal-total-price').textContent = `$${total}`;
+
+      const subhead = document.getElementById('modal-status-subhead');
+      const noticeBox = document.getElementById('modal-api-notice');
+      const noticeText = document.getElementById('modal-api-notice-text');
+
+      if (isSuccess) {
+        subhead.textContent = 'Confirmation email dispatched to albatoros731@gmail.com! We will call you within 15 minutes.';
+        noticeBox.classList.add('hidden');
+      } else {
+        subhead.textContent = 'Booking Demo Recorded! We will call you within 15 minutes to confirm.';
+        noticeBox.classList.remove('hidden');
+        if (apiMsg) {
+          noticeText.innerHTML = `Web3Forms response: <em>"${apiMsg}"</em><br>To enable live email forwarding to <strong>albatoros731@gmail.com</strong>, generate a free key at <a href="https://web3forms.com" target="_blank" rel="noopener" class="underline font-bold">web3forms.com</a> and paste it into the Web3Forms Key field.`;
+        }
+      }
+
+      const modal = document.getElementById('booking-modal');
+      if (modal) {
+        modal.classList.add('active');
+      }
+      lucide.createIcons();
+    }
+
+    /* ==========================================================================
+       5. BEFORE / AFTER COMPARISON SLIDER LOGIC
+       ========================================================================== */
+    function initComparisonSlider() {
+      const container = document.getElementById('comparison-slider');
+      const overlay = document.getElementById('comp-overlay');
+      const handle = document.getElementById('comp-handle');
+
+      if (!container || !overlay || !handle) return;
+
+      let isDragging = false;
+
+      function moveSlider(x) {
+        const rect = container.getBoundingClientRect();
+        let position = x - rect.left;
+        if (position < 0) position = 0;
+        if (position > rect.width) position = rect.width;
+
+        const percentage = (position / rect.width) * 100;
+        overlay.style.width = `${percentage}%`;
+        handle.style.left = `${percentage}%`;
+      }
+
+      // Mouse Events
+      handle.addEventListener('mousedown', () => isDragging = true);
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        moveSlider(e.clientX);
+      });
+
+      // Touch Events for Mobile
+      handle.addEventListener('touchstart', () => isDragging = true);
+      window.addEventListener('touchend', () => isDragging = false);
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        moveSlider(e.touches[0].clientX);
+      });
+    }
+
+    /* ==========================================================================
+       6. FAQ ACCORDION LOGIC
+       ========================================================================== */
+    function initFaqAccordion() {
+      const toggles = document.querySelectorAll('.faq-toggle');
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const icon = toggle.querySelector('i[data-lucide="chevron-down"]');
+
+          const isHidden = content.classList.contains('hidden');
+
+          // Close other accordions
+          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+          document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = 'rotate(0deg)');
+
+          if (isHidden) {
+            content.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
+    }
+
+    /* ==========================================================================
+       7. FLOATING AI ASSISTANT WIDGET LOGIC
+       ========================================================================== */
+    function initAiChatWidget() {
+      const widgetToggle = document.getElementById('ai-chat-toggle');
+      const chatWindow = document.getElementById('ai-chat-window');
+      const chatClose = document.getElementById('ai-chat-close');
+      const iconOpen = document.getElementById('ai-toggle-icon-open');
+      const iconClose = document.getElementById('ai-toggle-icon-close');
+      const chatForm = document.getElementById('ai-chat-form');
+      const chatInput = document.getElementById('ai-chat-input');
+      const messagesContainer = document.getElementById('ai-chat-messages');
+
+      if (!widgetToggle || !chatWindow) return;
+
+      function toggleWidget() {
+        const isHidden = chatWindow.classList.contains('hidden');
+        if (isHidden) {
+          chatWindow.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+          chatInput.focus();
+        } else {
+          chatWindow.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      }
+
+      widgetToggle.addEventListener('click', toggleWidget);
+      if (chatClose) chatClose.addEventListener('click', toggleWidget);
+
+      // Delegate prompt chips click
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('ai-chip')) {
+          const question = e.target.textContent.trim();
+          sendUserMessage(question);
+        }
+      });
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const question = chatInput.value.trim();
+          if (!question) return;
+          sendUserMessage(question);
+          chatInput.value = '';
+        });
+      }
+
+      function sendUserMessage(text) {
+        // Render user message bubble
+        const userBubble = document.createElement('div');
+        userBubble.className = 'flex justify-end';
+        userBubble.innerHTML = `
+          <div class="bg-emerald-500 text-slate-950 font-medium p-3 rounded-2xl rounded-tr-none max-w-[85%] leading-relaxed shadow-sm">
+            ${escapeHtml(text)}
+          </div>
+        `;
+        messagesContainer.appendChild(userBubble);
+        scrollToBottom();
+
+        // Show Typing Indicator
+        const typingBubble = document.createElement('div');
+        typingBubble.id = 'ai-typing-indicator';
+        typingBubble.className = 'flex gap-2.5 items-start';
+        typingBubble.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-300 p-3 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700/60 flex items-center gap-1.5">
+            <span class="w-2 h-2 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-bounce"></span>
+            <span class="w-2 h-2 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+            <span class="w-2 h-2 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+          </div>
+        `;
+        messagesContainer.appendChild(typingBubble);
+        lucide.createIcons();
+        scrollToBottom();
+
+        // Simulate AI response delay
+        setTimeout(() => {
+          const typingEl = document.getElementById('ai-typing-indicator');
+          if (typingEl) typingEl.remove();
+
+          const botReply = generateAiResponse(text);
+
+          const botBubble = document.createElement('div');
+          botBubble.className = 'flex gap-2.5 items-start';
+          botBubble.innerHTML = `
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+              <i data-lucide="bot" class="w-4 h-4"></i>
+            </div>
+            <div class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 p-3.5 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700/60 max-w-[85%] leading-relaxed shadow-sm">
+              ${botReply}
+            </div>
+          `;
+          messagesContainer.appendChild(botBubble);
+          lucide.createIcons();
+          scrollToBottom();
+        }, 650);
+      }
+
+      function scrollToBottom() {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, (m) => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        })[m]);
+      }
+
+      function generateAiResponse(query) {
+        const q = query.toLowerCase();
+
+        if (q.includes('ceramic') || q.includes('coating') || q.includes('9h') || q.includes('swirl') || q.includes('scratch') || q.includes('correction')) {
+          return `Our <strong>Ceramic Shield Elite</strong> package includes single-stage paint correction to eliminate up to 99% of swirl marks, followed by a professional 3-Year 9H Ceramic Coating. It creates an ultra-hydrophobic glass shield protecting against UV rays, acid rain, and dirt. It requires 1 full day for precision leveling and curing.`;
+        }
+
+        if (q.includes('mobile') || q.includes('house') || q.includes('home') || q.includes('office') || q.includes('come') || q.includes('water') || q.includes('power') || q.includes('location')) {
+          return `Yes! We are a 100% self-contained mobile detailing unit. We bring our own deionized water tank and quiet generator power right to your driveway or workplace anywhere in the metro area. No water or electricity hookups required!`;
+        }
+
+        if (q.includes('full detail') || q.includes('express') || q.includes('package') || q.includes('included') || q.includes('difference') || q.includes('tier') || q.includes('what\'s included')) {
+          return `We offer 3 detailing tiers:<br><br>
+            1. <strong>Express Detail</strong> ($120+): Hand wash, tire shine, interior vacuum, glass polish & spray wax.<br>
+            2. <strong>Signature Full Detail</strong> ($200+): Adds steam sanitization, leather conditioning, engine bay detail & carpet shampoo.<br>
+            3. <strong>Ceramic Shield Elite</strong> ($470+): Adds paint correction & 3-Year 9H Ceramic Coating.`;
+        }
+
+        if (q.includes('price') || q.includes('cost') || q.includes('how much') || q.includes('suv') || q.includes('sedan') || q.includes('truck') || q.includes('rate') || q.includes('quote')) {
+          return `Base package rates:<br>
+            • <strong>Sedan / Coupe</strong>: $120 (Express) | $200 (Full) | $470 (Ceramic)<br>
+            • <strong>SUV / Crossover</strong>: $170 (Express) | $250 (Full) | $520 (Ceramic)<br>
+            • <strong>Truck / 3-Row SUV</strong>: $220 (Express) | $300 (Full) | $570 (Ceramic)<br><br>
+            You can use our live calculator on this page to build a customized quote in real-time!`;
+        }
+
+        if (q.includes('pet hair') || q.includes('addon') || q.includes('add-on') || q.includes('engine') || q.includes('headlight') || q.includes('leather')) {
+          return `Available custom add-ons:<br>
+            • <strong>Engine Bay Clean & Dress</strong>: +$45<br>
+            • <strong>Headlight UV Restoration</strong>: +$35<br>
+            • <strong>Heavy Pet Hair Removal</strong>: +$30<br>
+            • <strong>Leather Conditioning</strong>: +$40<br><br>
+            Check any of these in our live estimator to update your quote!`;
+        }
+
+        if (q.includes('book') || q.includes('appointment') || q.includes('pay') || q.includes('deposit') || q.includes('phone') || q.includes('call') || q.includes('schedule')) {
+          return `No deposit or upfront payment is required! You only pay after your detailing service is finished and approved. You can fill out our instant booking form above or give us a call at <strong>(555)234-5678</strong>.`;
+        }
+
+        if (q.includes('hour') || q.includes('time') || q.includes('open') || q.includes('sunday') || q.includes('saturday')) {
+          return `Operating hours:<br>
+            • <strong>Mon - Fri</strong>: 8:00 AM – 7:00 PM<br>
+            • <strong>Saturday</strong>: 9:00 AM – 6:00 PM<br>
+            • <strong>Sunday</strong>: By Appointment`;
+        }
+
+        return `I'd be happy to assist with that! For specialized vehicle needs, custom fleet quotes, or immediate scheduling, feel free to use our live calculator above, call us at <strong>(555)234-5678</strong>, or submit a booking request.`;
+      }
+    }
+  </script>
+</body>
+
+</html>
